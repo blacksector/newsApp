@@ -22,7 +22,10 @@ export class HomePage {
     public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
 
 
-    this.getTopStories('home.json');
+
+
+    this.getStories();
+
 
   }
 
@@ -42,7 +45,23 @@ export class HomePage {
     return loading;
   }
 
-  getTopStories(filter: string) {
+  getStories(newFilter? : any) {
+    if (newFilter) {
+      this.getStoriesApi(newFilter);
+    } else {
+      this.storage.get('filter').then((val) => {
+        if (val != null && val != undefined && val != false) {
+          // Filter does exist:
+          this.getStoriesApi(val);
+        } else {
+          this.getStoriesApi('home.json');
+          this.storage.set('filter', 'home.json');
+        }
+      });
+    }
+  }
+
+  getStoriesApi(filter: string) {
     // Grabs stories based on a provided filter
 
     this.api.get(filter).subscribe(res => {
@@ -61,6 +80,9 @@ export class HomePage {
     // to the stories object.
     var inSection = false;
     var sectionIndex = 0;
+
+    this.sections = [];
+
     for (var i = 0; i < this.stories.length; i++) {
       if (this.sections.length == 0) {
         this.sections.push({"title": this.stories[i]["section"],
@@ -307,19 +329,12 @@ export class HomePage {
       checked: false
     });
 
-
-
-
-
-
-
-
-
     alert.addButton('Cancel');
     alert.addButton({
       text: 'OK',
       handler: data => {
-        console.log(data);
+        this.storage.set('filter', data);
+        this.getStories(data);
       }
     });
     alert.present();
