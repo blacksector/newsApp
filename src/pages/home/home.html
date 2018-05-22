@@ -10,13 +10,13 @@
 
 <ion-content class="card-background-page">
 
-  <div text-center padding *ngIf="stories?.length != 0">
+  <div text-center padding *ngIf="stories?.length != 0 && stories != []">
     <p style="line-height: 0;font-size: 1.9em;">{{ stories?.length }}</p>
     <p style="font-size: 1.3em;">Top Stories</p>
   </div>
 
   <div text-center padding *ngIf="stories?.length === 0">
-    <p style="line-height: 0;font-size: 1.9em;">
+    <p style="font-size: 1.9em;">
       It seems there was an error loading the news stories. Try again or check your internet connection!
     </p>
   </div>

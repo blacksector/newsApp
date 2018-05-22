@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, ModalController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController,
+  LoadingController, ModalController, AlertController} from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -12,13 +13,13 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class HomePage {
 
-  stories: any;
+  stories: any = [];
   sections: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public api: ApiProvider, private storage: Storage,
     public modalCtrl: ModalController, public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
 
 
     this.getTopStories('home.json');
@@ -117,7 +118,212 @@ export class HomePage {
   }
 
   showFilters() {
-    this.modalCtrl.create('SettingsPage').present();
+    //this.modalCtrl.create('SettingsPage').present();
+
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Filter');
+
+    alert.addInput({
+      type: 'radio',
+      label: 'All',
+      value: 'home.json',
+      checked: true
+    });
+
+    // arts
+    alert.addInput({
+      type: 'radio',
+      label: 'Arts',
+      value: 'arts.json',
+      checked: false
+    });
+
+    // automobiles
+    alert.addInput({
+      type: 'radio',
+      label: 'Automobiles',
+      value: 'automobiles.json',
+      checked: false
+    });
+    // books
+    alert.addInput({
+      type: 'radio',
+      label: 'Books',
+      value: 'books.json',
+      checked: false
+    });
+    // business
+    alert.addInput({
+      type: 'radio',
+      label: 'Business',
+      value: 'business.json',
+      checked: false
+    });
+    // fashion
+    alert.addInput({
+      type: 'radio',
+      label: 'Fashion',
+      value: 'fashion.json',
+      checked: false
+    });
+    // food
+    alert.addInput({
+      type: 'radio',
+      label: 'Food',
+      value: 'food.json',
+      checked: false
+    });
+    // health
+    alert.addInput({
+      type: 'radio',
+      label: 'Health',
+      value: 'health.json',
+      checked: false
+    });
+    // insider
+    alert.addInput({
+      type: 'radio',
+      label: 'Insider',
+      value: 'insider.json',
+      checked: false
+    });
+    // magazine
+    alert.addInput({
+      type: 'radio',
+      label: 'Arts',
+      value: 'arts.json',
+      checked: false
+    });
+    // movies
+    alert.addInput({
+      type: 'radio',
+      label: 'Movies',
+      value: 'movies.json',
+      checked: false
+    });
+    // national
+    alert.addInput({
+      type: 'radio',
+      label: 'National',
+      value: 'national.json',
+      checked: false
+    });
+    // nyregion
+    alert.addInput({
+      type: 'radio',
+      label: 'New York Region',
+      value: 'nyregion.json',
+      checked: false
+    });
+    // obituaries
+    alert.addInput({
+      type: 'radio',
+      label: 'Obituaries',
+      value: 'obituaries.json',
+      checked: false
+    });
+    // opinion
+    alert.addInput({
+      type: 'radio',
+      label: 'Opinion',
+      value: 'opinion.json',
+      checked: false
+    });
+    // politics
+    alert.addInput({
+      type: 'radio',
+      label: 'Politics',
+      value: 'politics.json',
+      checked: false
+    });
+    // realestate
+    alert.addInput({
+      type: 'radio',
+      label: 'Real Estate',
+      value: 'realestate.json',
+      checked: false
+    });
+    // science
+    alert.addInput({
+      type: 'radio',
+      label: 'Science',
+      value: 'science.json',
+      checked: false
+    });
+    // sports
+    alert.addInput({
+      type: 'radio',
+      label: 'Sports',
+      value: 'sports.json',
+      checked: false
+    });
+    // sundayreview
+    alert.addInput({
+      type: 'radio',
+      label: 'Sunday Review',
+      value: 'sundayreview.json',
+      checked: false
+    });
+    // technology
+    alert.addInput({
+      type: 'radio',
+      label: 'Technology',
+      value: 'technology.json',
+      checked: false
+    });
+    // theater
+    alert.addInput({
+      type: 'radio',
+      label: 'Theater',
+      value: 'theater.json',
+      checked: false
+    });
+    // tmagazine
+    alert.addInput({
+      type: 'radio',
+      label: 'T Magazine',
+      value: 'tmagazine.json',
+      checked: false
+    });
+    // travel
+    alert.addInput({
+      type: 'radio',
+      label: 'Travel',
+      value: 'travel.json',
+      checked: false
+    });
+    // upshot
+    alert.addInput({
+      type: 'radio',
+      label: 'Upshot',
+      value: 'upshot.json',
+      checked: false
+    });
+    // world
+    alert.addInput({
+      type: 'radio',
+      label: 'World',
+      value: 'world.json',
+      checked: false
+    });
+
+
+
+
+
+
+
+
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log(data);
+      }
+    });
+    alert.present();
+
   }
 
 
