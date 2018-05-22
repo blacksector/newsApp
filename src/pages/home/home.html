@@ -2,12 +2,30 @@
   <ion-navbar transparent>
     <ion-title>Home</ion-title>
     <ion-buttons end>
-      <button ion-button icon-left color="dark"><ion-icon name="ios-options"></ion-icon></button>
+      <button ion-button icon-left color="dark" (click)="showFilters()"><ion-icon name="ios-options"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+
+  <div text-center padding *ngIf="stories?.length != 0">
+    <p style="line-height: 0;font-size: 1.9em;">{{ stories?.length }}</p>
+    <p style="font-size: 1.3em;">Top Stories</p>
+  </div>
+
+  <div text-center padding *ngIf="stories?.length === 0">
+    <p style="line-height: 0;font-size: 1.9em;">
+      It seems there was an error loading the news stories. Try again or check your internet connection!
+    </p>
+  </div>
+
+  <ion-card *ngFor="let section of sections" (click)="showStories(section)">
+    <img src="assets/imgs/backgrounds/{{section.background}}.png" />
+    <div class="card-title">{{ section.title }}</div>
+    <div *ngIf="section.count === 1" class="card-subtitle">{{ section.count }} Story</div>
+    <div *ngIf="section.count > 1" class="card-subtitle">{{ section.count }} Stories</div>
+  </ion-card>
 
 </ion-content>

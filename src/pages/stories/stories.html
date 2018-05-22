@@ -1,0 +1,30 @@
+<ion-header no-shadow no-border>
+  <ion-navbar transparent>
+    <ion-buttons>
+      <button ion-button icon-left color="dark" (click)="this.navCtrl.pop()"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>{{section?.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="shownStories.length > 0">
+    <ion-card *ngFor="let story of shownStories" (click)="storyDetails(story)">
+      <ion-card-content>
+        <p class="card-header">
+          {{story.title}}
+        </p>
+        <p><b>{{story.subsection}}</b></p>
+        <p><i>{{story.byline}}</i></p>
+        <p>{{story.abstract}}</p>
+        <button ion-button icon-only float-right clear color="dark">
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>

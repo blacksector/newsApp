@@ -1,0 +1,25 @@
+<ion-header no-shadow no-border>
+  <ion-navbar transparent>
+    <ion-buttons>
+      <button ion-button icon-left color="dark" (click)="this.navCtrl.pop()"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>{{story?.subsection}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="story != null">
+    <p text-center style="font-size: 1.9em;">{{ story.title }}</p>
+    <br />
+    <p><b>{{story.subsection}}</b></p>
+    <p><i>{{story.byline}}</i></p>
+    <p>{{story.abstract}}</p>
+
+  </div>
+
+  <div *ngIf="story === null">
+    <p text-center style="font-size: 1.9em;">There was an error loading the story. Please try again and check your internet connection.</p>
+  </div>
+
+</ion-content>

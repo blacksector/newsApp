@@ -13,6 +13,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { ApiProvider } from '../providers/api/api';
 
+import { IonicStorageModule } from '@ionic/storage';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 @NgModule({
   declarations: [
     MyApp
@@ -20,6 +24,7 @@ import { ApiProvider } from '../providers/api/api';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -31,7 +36,8 @@ import { ApiProvider } from '../providers/api/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    LocalNotifications
+    LocalNotifications,
+    InAppBrowser
   ]
 })
 export class AppModule {}
