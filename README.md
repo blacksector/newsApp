@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://project52.tech/" target="blank"><img src="https://raw.githubusercontent.com/blacksector/authenticator/master/src/assets/imgs/logo.png" alt="Authenticator Logo" width="80"></a>
+  <a href="https://project52.tech/" target="blank"><img src="https://raw.githubusercontent.com/blacksector/newsapp/master/resources/icon.png" alt="News App Logo" width="80"></a>
 
   <br>
   News App
