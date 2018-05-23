@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 export class ApiProvider {
   url: string = "https://api.nytimes.com/svc/topstories/v2";
 
-  apiKey: string = '4b4d9e491bba4b428219d908b7eb94fc';
+  apiKey: string = '';
 
   constructor(public http: Http) {
   }

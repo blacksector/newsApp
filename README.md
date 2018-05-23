@@ -24,10 +24,9 @@
 
 ## Screenshots
 <p align="center">
-<img src="https://project52.tech/wp-content/uploads/2018/05/1-1.png" alt="Welcome Screen" width="200">
-<img src="https://project52.tech/wp-content/uploads/2018/05/2-1.png" alt="Blank Home Screen" width="200">
-<img src="https://project52.tech/wp-content/uploads/2018/05/3-1.png" alt="Add An Account Screen" width="200">
-<img src="https://project52.tech/wp-content/uploads/2018/05/4-1.png" alt="Home Screen" width="200">
+<img src="https://project52.tech/wp-content/uploads/2018/05/Screenshot_20180523-134907.png" alt="Home Screen" width="200">
+<img src="https://project52.tech/wp-content/uploads/2018/05/Screenshot_20180523-134918.png" alt="Stories / More News Screen" width="200">
+<img src="https://project52.tech/wp-content/uploads/2018/05/Screenshot_20180523-135354.png" alt="News Article" width="200">
 </p>
 
 ## Key Features
@@ -61,6 +60,14 @@ $ npm install
 # Run the app - All of the features won't work, I recommend deploying on an emulator
 $ ionic serve --lab
 
+```
+
+To get the API to pull information from the NYT Database, create a new account [here](https://developer.nytimes.com/signup) and request a "Top Stories" API key.
+
+After you have successfully received a new key, in the `src/providers/api/api.ts` file modify line 12 to include your API key:
+
+```typescript
+apiKey: string = 'YOUR_API_KEY_HERE';
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
